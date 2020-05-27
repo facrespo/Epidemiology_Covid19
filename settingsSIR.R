@@ -22,6 +22,9 @@ tasasr <- function(M, m1, m2, Ncountry, mu, gammap, name_country, tipperpoint, m
   Ncase[1]<-M[1,1];
   for (i in 2:(nch[1])){
     Ncase[i]=M[i,1]-M[i-1,1];
+    if (Ncase[i]<0){
+      Ncase[i] <-0;
+    }
   }
   colnames(Ncase) <- c("New_cases");
   rownames(Ncase) <- rownames(M)[1:(nch[1])];
